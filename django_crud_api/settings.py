@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders', 
     'rest_framework',
+    'drf_spectacular',
     'tasks',
 ]
 
@@ -44,6 +45,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 
 ROOT_URLCONF = 'django_crud_api.urls'
 
@@ -120,3 +125,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Cors Headers authorization
 # Se le coloca las urls del localhost que podra hacer peticiones
 CORS_ALLOWED_ORIGINS = []
+
+# Documentation settings
+# https://drf-spectacular.readthedocs.io/en/latest/settings.html
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your Project API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}

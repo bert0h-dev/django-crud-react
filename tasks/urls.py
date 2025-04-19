@@ -1,5 +1,6 @@
 from django.urls import include, path
 from rest_framework import routers
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
 from .views import TaskView
 
@@ -16,4 +17,9 @@ router.register(r"tasks", TaskView, basename="tasks")
 # Lo genera por defecto
 urlpatterns = [
     path('api/v1/', include(router.urls)),
+    # URLs for schema generation YML
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    # URLs for Swagger UI and ReDoc
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
