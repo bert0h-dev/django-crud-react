@@ -8,3 +8,7 @@ const taksApi = axios.create({
 export const getAllTasks = () => taksApi.get('/');
 
 export const createTask = (task) => taksApi.post('/', task);
+
+export const getTask = (id) => taksApi.get(`/${id}/`);
+
+export const deleteTask = (id) => taksApi.delete(`/${id}/`);
