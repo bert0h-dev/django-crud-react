@@ -124,7 +124,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cors Headers authorization
 # Se le coloca las urls del localhost que podra hacer peticiones
-CORS_ALLOWED_ORIGINS = []
+CORS_ALLOWED_ORIGINS = ['http://localhost:5174']
 
 # Documentation settings
 # https://drf-spectacular.readthedocs.io/en/latest/settings.html
